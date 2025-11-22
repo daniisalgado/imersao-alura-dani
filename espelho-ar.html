@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Espelho AR - GlowBeauty AI</title>
+</head>
+<body>
+    <header>
+        <a href="index.html" style="text-decoration: none;">
+            <h1>GlowBeauty AI</h1>
+        </a>
+    </header>
+
+    <main>
+        <section class="card detail-content">
+            
+            <h2>🤳 Espelho AR (Virtual Try-On)</h2>
+            <p class="meta-info">REALIDADE AUMENTADA & MAKEUP</p>
+            
+            <img src="arquivos/espelho-AR.png" id="foto-modelo" alt="Pessoa testando maquiagem pelo celular" class="detail-image" style="transition: all 0.5s ease;">
+            
+            <p><strong>Experimente tudo sem sujeira.</strong></p>
+            <p>Não sabe se aquele batom vermelho combina com seu tom de pele? O nosso <strong>Espelho AR</strong> usa a câmera do seu dispositivo para aplicar maquiagem digitalmente em tempo real.</p>
+            
+            <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 15px; margin: 2rem 0; text-align: center; border: 1px solid rgba(255,255,255,0.1);">
+                
+                <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                    CLIQUE PARA TESTAR: <span id="nome-tom" style="color: white; font-weight: bold; text-transform: uppercase;">Escolha um tom...</span>
+                </p>
+                
+                <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                    
+                    <div onclick="testarTom('#D32F2F', 'Vermelho Matte')" 
+                         style="width: 45px; height: 45px; background: #D32F2F; border-radius: 50%; border: 2px solid white; cursor: pointer; transition: transform 0.2s;"
+                         onmouseover="this.style.transform='scale(1.2)'" 
+                         onmouseout="this.style.transform='scale(1)'"
+                         title="Vermelho Matte">
+                    </div>
+
+                    <div onclick="testarTom('#7B1FA2', 'Roxo Elétrico')" 
+                         style="width: 45px; height: 45px; background: #7B1FA2; border-radius: 50%; border: 2px solid white; cursor: pointer; transition: transform 0.2s;"
+                         onmouseover="this.style.transform='scale(1.2)'" 
+                         onmouseout="this.style.transform='scale(1)'"
+                         title="Roxo Elétrico">
+                    </div>
+
+                    <div onclick="testarTom('#C2185B', 'Pink Pop')" 
+                         style="width: 45px; height: 45px; background: #C2185B; border-radius: 50%; border: 2px solid white; cursor: pointer; transition: transform 0.2s;"
+                         onmouseover="this.style.transform='scale(1.2)'" 
+                         onmouseout="this.style.transform='scale(1)'"
+                         title="Pink Pop">
+                    </div>
+
+                    <div onclick="testarTom('#FF9800', 'Laranja Summer')" 
+                         style="width: 45px; height: 45px; background: #FF9800; border-radius: 50%; border: 2px solid white; cursor: pointer; transition: transform 0.2s;"
+                         onmouseover="this.style.transform='scale(1.2)'" 
+                         onmouseout="this.style.transform='scale(1)'"
+                         title="Laranja Summer">
+                    </div>
+
+                    <div onclick="testarTom('#795548', 'Nude Clássico')" 
+                         style="width: 45px; height: 45px; background: #795548; border-radius: 50%; border: 2px solid white; cursor: pointer; transition: transform 0.2s;"
+                         onmouseover="this.style.transform='scale(1.2)'" 
+                         onmouseout="this.style.transform='scale(1)'"
+                         title="Nude Clássico">
+                    </div>
+
+                </div>
+                <p style="font-size: 0.8rem; margin-top: 15px; color: var(--text-secondary);">*A IA detecta seus lábios e aplica a cor automaticamente.</p>
+            </div>
+
+            <p>Funcionalidades disponíveis:</p>
+            <ul>
+                <li>💋 <strong>Lip Studio:</strong> Teste mais de 50 tons de batom;</li>
+                <li>🎨 <strong>Base Match:</strong> Encontre o tom exato da sua base;</li>
+                <li>💇‍♀️ <strong>Hair Color:</strong> Veja como você ficaria loira ou ruiva.</li>
+            </ul>
+
+            <a href="index.html" class="back-link">← Voltar para a vitrine</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 GlowBeauty AI</p>
+    </footer>
+
+    <script>
+        function testarTom(corHex, nomeCor) {
+            // 1. Seleciona a imagem e o texto
+            let imagem = document.getElementById("foto-modelo");
+            let texto = document.getElementById("nome-tom");
+
+            // 2. Aplica a cor na borda e na sombra da imagem (Glow effect)
+            imagem.style.borderColor = corHex;
+            imagem.style.boxShadow = `0 0 40px ${corHex}`;
+
+            // 3. Atualiza o texto com o nome da cor
+            texto.innerText = nomeCor;
+            texto.style.color = corHex;
+        }
+    </script>
+</body>
+</html>

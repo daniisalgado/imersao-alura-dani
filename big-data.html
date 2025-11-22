@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Big Data da Pele - GlowBeauty AI</title>
+    <style>
+        /* Estilo extra para os botões do gráfico */
+        .btn-chart {
+            background: transparent;
+            border: 1px solid var(--text-secondary);
+            color: var(--text-secondary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s;
+        }
+        .btn-chart.active {
+            background: var(--secondary-glow);
+            color: var(--bg-color);
+            border-color: var(--secondary-glow);
+            font-weight: bold;
+        }
+        /* Faz a barra crescer suavemente */
+        .progress-fill {
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" style="text-decoration: none;">
+            <h1>GlowBeauty AI</h1>
+        </a>
+    </header>
+
+    <main>
+        <section class="card detail-content">
+            
+            <h2>📊 Big Data da Pele</h2>
+            <p class="meta-info">MONITORAMENTO & EVOLUÇÃO</p>
+            
+            <img src="arquivos/big-data-da pele.png" alt="Gráficos de evolução da pele" class="detail-image">
+            
+            <p><strong>O que não se mede, não se melhora.</strong></p>
+            <p>Nosso sistema de <strong>Big Data</strong> armazena suas fotos diárias e cria uma linha do tempo, comparando a evolução da sua pele.</p>
+
+            <div style="background: rgba(15, 12, 41, 0.8); padding: 2rem; border-radius: 15px; border: 1px solid var(--secondary-glow); margin: 2rem 0;">
+                
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <h3 style="color: var(--text-color); margin: 0;">Skin Score</h3>
+                    
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn-chart" id="btn-antes" onclick="atualizarGrafico('antes')">Mês Passado</button>
+                        <button class="btn-chart active" id="btn-atual" onclick="atualizarGrafico('atual')">Mês Atual</button>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 5px;">
+                        <span>Hidratação</span>
+                        <span id="txt-hidra">92%</span>
+                    </div>
+                    <div style="width: 100%; background: rgba(255,255,255,0.1); height: 10px; border-radius: 5px;">
+                        <div id="bar-hidra" class="progress-fill" style="width: 92%; background: var(--secondary-glow); height: 100%; border-radius: 5px; box-shadow: 0 0 10px var(--secondary-glow);"></div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 5px;">
+                        <span>Uniformidade</span>
+                        <span id="txt-unif">78%</span>
+                    </div>
+                    <div style="width: 100%; background: rgba(255,255,255,0.1); height: 10px; border-radius: 5px;">
+                        <div id="bar-unif" class="progress-fill" style="width: 78%; background: var(--primary-glow); height: 100%; border-radius: 5px; box-shadow: 0 0 10px var(--primary-glow);"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div style="display: flex; justify-content: space-between; color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 5px;">
+                        <span>Barreira Cutânea</span>
+                        <span id="txt-barreira">Excelente</span>
+                    </div>
+                    <div style="width: 100%; background: rgba(255,255,255,0.1); height: 10px; border-radius: 5px;">
+                        <div id="bar-barreira" class="progress-fill" style="width: 100%; background: #00ff88; height: 100%; border-radius: 5px; box-shadow: 0 0 10px #00ff88;"></div>
+                    </div>
+                </div>
+                
+                <p style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 1rem; text-align: center;">*Dados atualizados em tempo real pela IA.</p>
+            </div>
+
+            <h3>Correlações Inteligentes</h3>
+            <p>Além de fotos, cruzamos dados de saúde. Descubra se a sua acne piora quando você dorme mal, come açúcar ou quando o clima está seco.</p>
+
+            <a href="index.html" class="back-link">← Voltar para a vitrine</a>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 GlowBeauty AI</p>
+    </footer>
+
+    <script>
+        function atualizarGrafico(periodo) {
+            // 1. Seleciona os elementos (Barras e Textos)
+            const barHidra = document.getElementById('bar-hidra');
+            const txtHidra = document.getElementById('txt-hidra');
+            
+            const barUnif = document.getElementById('bar-unif');
+            const txtUnif = document.getElementById('txt-unif');
+
+            const barBarreira = document.getElementById('bar-barreira');
+            const txtBarreira = document.getElementById('txt-barreira');
+
+            // Botões
+            const btnAntes = document.getElementById('btn-antes');
+            const btnAtual = document.getElementById('btn-atual');
+
+            // 2. Define os valores para cada período
+            if (periodo === 'antes') {
+                // Valores do Mês Passado (Piores)
+                barHidra.style.width = '45%';
+                txtHidra.innerText = '45%';
+                
+                barUnif.style.width = '30%';
+                txtUnif.innerText = '30%';
+
+                barBarreira.style.width = '50%';
+                barBarreira.style.background = '#ff4444'; // Fica vermelho (alerta)
+                barBarreira.style.boxShadow = '0 0 10px #ff4444';
+                txtBarreira.innerText = 'Frágil';
+
+                // Atualiza estilo dos botões
+                btnAntes.classList.add('active');
+                btnAtual.classList.remove('active');
+
+            } else {
+                // Valores do Mês Atual (Melhores - Glow Up!)
+                barHidra.style.width = '92%';
+                txtHidra.innerText = '92%';
+                
+                barUnif.style.width = '78%';
+                txtUnif.innerText = '78%';
+
+                barBarreira.style.width = '100%';
+                barBarreira.style.background = '#00ff88'; // Volta para verde
+                barBarreira.style.boxShadow = '0 0 10px #00ff88';
+                txtBarreira.innerText = 'Excelente';
+
+                // Atualiza estilo dos botões
+                btnAtual.classList.add('active');
+                btnAntes.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>
