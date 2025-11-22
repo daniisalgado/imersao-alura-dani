@@ -20,8 +20,6 @@ O funcionamento é direto: o usuário informa suas preferências e necessidades,
 
 ## 💡 Funcionalidades e Roadmap
 
-Atualmente, o foco do projeto é a busca eficiente. Abaixo, algumas ideias que pretendo implementar no futuro para continuar estudando:
-
 - [x] Busca de produtos baseada em preferências.
 - [x] Interface simples e direta.
 
